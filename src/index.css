@@ -6,6 +6,7 @@
   --light-grayish-cyan-filter: hsl(180, 31%, 95%);
   --dark-grayish-cyan: hsl(180, 8%, 52%);
   --very-dark-grayish-cyan: hsl(180, 14%, 20%);
+  --green: hsl(180, 29%, 50%, 1);
 
   /* weights */
   --normal: 500;
@@ -28,6 +29,23 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: var(--light-grayish-cyan-background);
+}
+
+header {
+  background: var(--green);
+}
+
+.filter-list {
+  width: 1110px;
+  height: 100vh;
 }
 
 /* Tablet */
