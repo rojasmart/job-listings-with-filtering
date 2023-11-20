@@ -7,6 +7,7 @@
   --dark-grayish-cyan: hsl(180, 8%, 52%);
   --very-dark-grayish-cyan: hsl(180, 14%, 20%);
   --green: hsl(180, 29%, 50%, 1);
+  --white: hsl(0, 0%, 100%, 1);
 
   /* weights */
   --normal: 500;
@@ -41,11 +42,32 @@ code {
 
 header {
   background: var(--green);
+  overflow: hidden;
+}
+
+header img {
+  background-position: center;
+  width: 100%;
+  height: 11.11em;
+  object-fit: cover;
+  transform: scale(1.1);
 }
 
 .filter-list {
   width: 1110px;
-  height: 100vh;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.job-card {
+  width: 100%;
+  height: 152px;
+  border-radius: 5px;
+  background-color: var(--white);
+  box-shadow: 0px 15px 20px -5px rgba(13, 113, 130, 0.15);
+  padding: 1rem;
 }
 
 /* Tablet */

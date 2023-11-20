@@ -31,7 +31,14 @@ function App() {
       </header>
       <div className="container">
         <div className="filter-list">
-          <div className="job-card"></div>
+          {data.map((item) => {
+            return (
+              <div className="job-card">
+                <p>{item.company}</p>
+                <p>{item.position}</p>
+              </div>
+            );
+          })}
         </div>
       </div>
     </main>
