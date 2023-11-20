@@ -1,4 +1,4 @@
-import backgroundHeader from "./assets/bg-header-desktop.svg";
+import backgroundHeader from "./images/bg-header-desktop.svg";
 
 import { useState, useEffect } from "react";
 
@@ -34,8 +34,19 @@ function App() {
           {data.map((item) => {
             return (
               <div className="job-card">
-                <p>{item.company}</p>
-                <p>{item.position}</p>
+                <img src={item.logo} alt="job-avatar" />
+                <div className="job-info">
+                  <p>{item.company}</p>
+                  <p>{item.position}</p>
+                  <p>{item.postedAt}</p>
+                  <p>{item.contract}</p>
+                  <p>{item.location}</p>
+                </div>
+                <div className="job-categories">
+                  {item.languages.map((language) => {
+                    return <span>{language}</span>;
+                  })}
+                </div>
               </div>
             );
           })}
