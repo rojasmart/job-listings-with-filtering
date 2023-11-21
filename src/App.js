@@ -38,9 +38,11 @@ function App() {
                 <div className="job-info">
                   <p>{item.company}</p>
                   <p>{item.position}</p>
-                  <p>{item.postedAt}</p>
-                  <p>{item.contract}</p>
-                  <p>{item.location}</p>
+                  <div className="job-info-secondary">
+                    <p>{item.postedAt}</p>
+                    <p>{item.contract}</p>
+                    <p>{item.location}</p>
+                  </div>
                 </div>
                 <div className="job-categories">
                   {item.languages.map((language) => {

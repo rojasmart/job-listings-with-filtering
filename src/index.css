@@ -67,9 +67,27 @@ header img {
   border-radius: 5px;
   background-color: var(--white);
   box-shadow: 0px 15px 20px -5px rgba(13, 113, 130, 0.15);
-  padding: 1rem;
+  padding: 1rem 3rem;
   display: flex;
   flex-direction: row;
+  gap: 2rem;
+}
+
+.job-info-secondary {
+  display: flex;
+  gap: 2rem;
+}
+
+.job-card img {
+  align-self: center;
+}
+
+.job-info {
+  flex: 1 1 50%;
+}
+
+.job-categories {
+  flex: 1 1 50%;
 }
 
 /* Tablet */
