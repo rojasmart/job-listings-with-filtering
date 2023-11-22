@@ -1,3 +1,4 @@
+import JobCard from "./components/JobCard";
 import backgroundHeader from "./images/bg-header-desktop.svg";
 
 import { useState, useEffect } from "react";
@@ -32,25 +33,7 @@ function App() {
       <div className="container">
         <div className="filter-list">
           {data.map((item) => {
-            return (
-              <div className="job-card">
-                <img src={item.logo} alt="job-avatar" />
-                <div className="job-info">
-                  <p>{item.company}</p>
-                  <p>{item.position}</p>
-                  <div className="job-info-secondary">
-                    <p>{item.postedAt}</p>
-                    <p>{item.contract}</p>
-                    <p>{item.location}</p>
-                  </div>
-                </div>
-                <div className="job-categories">
-                  {item.languages.map((language) => {
-                    return <span>{language}</span>;
-                  })}
-                </div>
-              </div>
-            );
+            return <JobCard item={item} />;
           })}
         </div>
       </div>
