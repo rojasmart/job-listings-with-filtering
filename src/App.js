@@ -1,4 +1,5 @@
 import JobCard from "./components/JobCard";
+import JobSearch from "./components/JobSearch";
 
 import { useState, useEffect } from "react";
 
@@ -34,8 +35,9 @@ function App() {
       </header>
       <div className="container">
         <div className="filter-list">
+          <JobSearch clickedLanguage={clickedLanguage} />
           {data.map((item) => {
-            return <JobCard item={item} />;
+            return <JobCard item={item} clickedLanguage={clickedLanguage} />;
           })}
         </div>
       </div>

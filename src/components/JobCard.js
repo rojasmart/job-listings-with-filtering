@@ -1,6 +1,10 @@
-const JobCard = ({ item }) => {
+import { useState } from "react";
+
+const JobCard = ({ item, clickLanguage }) => {
+  const [clickLanguage, setClickLanguage] = useState();
+
   const handleFilter = (language) => {
-    console.log(language);
+    setClickLanguage(language);
   };
 
   return (
