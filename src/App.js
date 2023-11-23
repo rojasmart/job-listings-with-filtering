@@ -1,5 +1,4 @@
 import JobCard from "./components/JobCard";
-import backgroundHeader from "./images/bg-header-desktop.svg";
 
 import { useState, useEffect } from "react";
 
@@ -28,7 +27,10 @@ function App() {
   return (
     <main>
       <header>
-        <img src={backgroundHeader} alt="background-header-pattern" />
+        <img
+          src={"/images/bg-header-desktop.svg"}
+          alt="background-header-pattern"
+        />
       </header>
       <div className="container">
         <div className="filter-list">
