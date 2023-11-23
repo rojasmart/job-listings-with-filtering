@@ -1,4 +1,8 @@
 const JobCard = ({ item }) => {
+  const handleFilter = (language) => {
+    console.log(language);
+  };
+
   return (
     <div className="job-card">
       <img src={item.logo} alt="job-avatar" />
@@ -15,7 +19,7 @@ const JobCard = ({ item }) => {
         <p>{item.role}</p>
         <p>{item.level}</p>
         {item.languages.map((language) => {
-          return <span>{language}</span>;
+          return <span onClick={() => handleFilter(language)}>{language}</span>;
         })}
         {!!item.tools.length && <span>{item.tools}</span>}
       </div>
