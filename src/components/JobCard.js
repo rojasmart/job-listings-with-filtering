@@ -17,7 +17,7 @@ const JobCard = ({ item }) => {
         {item.languages.map((language) => {
           return <span>{language}</span>;
         })}
-        {item.tools.length > 0 && <span>{item.tools}</span>}
+        {!!item.tools.length && <span>{item.tools}</span>}
       </div>
     </div>
   );
