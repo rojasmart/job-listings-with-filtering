@@ -1,11 +1,9 @@
 import { useState } from "react";
 
-const JobCard = ({ item, clickLanguage }) => {
-  const [clickLanguage, setClickLanguage] = useState();
+const JobCard = ({ item }) => {
+  const [clickLanguage, setClickLanguage] = useState([]);
 
-  const handleFilter = (language) => {
-    setClickLanguage(language);
-  };
+  console.log(clickLanguage);
 
   return (
     <div className="job-card">
@@ -23,7 +21,15 @@ const JobCard = ({ item, clickLanguage }) => {
         <p>{item.role}</p>
         <p>{item.level}</p>
         {item.languages.map((language) => {
-          return <span onClick={() => handleFilter(language)}>{language}</span>;
+          return (
+            <span
+              onClick={() =>
+                setClickLanguage((oldClick) => [...oldClick, language])
+              }
+            >
+              {language}
+            </span>
+          );
         })}
         {!!item.tools.length && <span>{item.tools}</span>}
       </div>

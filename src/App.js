@@ -35,9 +35,9 @@ function App() {
       </header>
       <div className="container">
         <div className="filter-list">
-          <JobSearch clickedLanguage={clickedLanguage} />
+          <JobSearch />
           {data.map((item) => {
-            return <JobCard item={item} clickedLanguage={clickedLanguage} />;
+            return <JobCard item={item} />;
           })}
         </div>
       </div>
