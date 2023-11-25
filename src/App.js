@@ -46,6 +46,13 @@ function App() {
     setFilterLanguage([]);
   };
 
+  const handleLastFilter = (item) => {
+    const removedItem = item.filter((i) => {
+      return i !== item;
+    });
+    return removedItem;
+  };
+
   return (
     <main>
       <header>
@@ -56,7 +63,11 @@ function App() {
       </header>
       <div className="container">
         <div className="filter-list">
-          <JobSearch filter={uniqueFilter} handleClear={handleClear} />
+          <JobSearch
+            filter={uniqueFilter}
+            handleClear={handleClear}
+            handleLastFilter={handleLastFilter}
+          />
           {data.map((item, index) => {
             return (
               <JobCard key={index} item={item} handleClick={handleClick} />

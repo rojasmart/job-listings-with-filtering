@@ -1,11 +1,11 @@
-const JobSearch = ({ filter, handleClear }) => {
+const JobSearch = ({ filter, handleClear, handleLastFilter }) => {
   return (
     <div className="job-card">
       {filter.map((item, index) => {
         return (
           <span key={index} className="job-category-filter">
             {item}
-            <button>
+            <button onClick={handleLastFilter}>
               <img src="/images/icon-remove.svg" alt="icon-cross" />
             </button>
           </span>
