@@ -9,6 +9,8 @@ function App() {
   const [isError, setIsError] = useState(false);
   const [filterLanguage, setFilterLanguage] = useState([]);
 
+  const uniqueFilter = Array.from(new Set(filterLanguage));
+
   useEffect(() => {
     setIsLoading(true);
     const handleFetchData = async () => {
@@ -38,7 +40,7 @@ function App() {
       </header>
       <div className="container">
         <div className="filter-list">
-          <JobSearch />
+          <JobSearch filter={uniqueFilter} />
           {data.map((item, index) => {
             return (
               <JobCard key={index} item={item} handleClick={handleClick} />
