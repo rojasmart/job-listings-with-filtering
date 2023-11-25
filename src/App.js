@@ -26,7 +26,19 @@ function App() {
     handleFetchData();
   }, []);
 
+  /*  const handleClick = (language) => {
+    setFilterLanguage((oldClick) => [...oldClick, language]);
+  }; */
+
   const handleClick = (language) => {
+    const newItem = data.filter((newVal) => {
+      return (
+        newVal.role === language ||
+        newVal.level === language ||
+        newVal.tools === language
+      );
+    });
+    setData(newItem);
     setFilterLanguage((oldClick) => [...oldClick, language]);
   };
 

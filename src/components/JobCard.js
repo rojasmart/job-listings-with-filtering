@@ -23,9 +23,14 @@ const JobCard = ({ item, handleClick }) => {
             </span>
           );
         })}
-        {!!item.tools.length && (
-          <span onClick={() => handleClick(item.tools)}>{item.tools}</span>
-        )}
+        {!!item.tools.length &&
+          item.tools.map((tool, index) => {
+            return (
+              <span key={index} onClick={() => handleClick(tool)}>
+                {tool}
+              </span>
+            );
+          })}
       </div>
     </div>
   );
