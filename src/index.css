@@ -72,13 +72,6 @@ header img {
   gap: 2rem;
 }
 
-.job-card.search {
-  position: absolute;
-  top: 120px;
-  height: 72px;
-  width: 100vh;
-}
-
 .job-info-secondary {
   display: flex;
   gap: 2rem;
@@ -108,7 +101,7 @@ header img {
   cursor: pointer;
 }
 
-.job-card.search span {
+.job-card span {
   border-radius: 4px;
   background-color: var(--green-opacity);
   padding: 1rem 2rem;
@@ -120,6 +113,7 @@ header img {
 .clear {
   align-self: center;
   margin-left: auto;
+  cursor: pointer;
 }
 
 /* Tablet */

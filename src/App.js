@@ -1,7 +1,7 @@
 import JobCard from "./components/JobCard";
 import JobSearch from "./components/JobSearch";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, lazy } from "react";
 
 function App() {
   const [isLoading, setIsLoading] = useState(false);
@@ -39,6 +39,10 @@ function App() {
     setFilterLanguage((oldClick) => [...oldClick, language]);
   };
 
+  const handleClear = () => {
+    setFilterLanguage([]);
+  };
+
   return (
     <main>
       <header>
@@ -49,7 +53,7 @@ function App() {
       </header>
       <div className="container">
         <div className="filter-list">
-          <JobSearch filter={uniqueFilter} />
+          <JobSearch filter={uniqueFilter} handleClear={handleClear} />
           {data.map((item, index) => {
             return (
               <JobCard key={index} item={item} handleClick={handleClick} />
