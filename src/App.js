@@ -1,3 +1,4 @@
+import { clear } from "@testing-library/user-event/dist/clear";
 import JobCard from "./components/JobCard";
 import JobSearch from "./components/JobSearch";
 
@@ -6,6 +7,7 @@ import { useState, useEffect, lazy } from "react";
 function App() {
   const [isLoading, setIsLoading] = useState(false);
   const [data, setData] = useState([]);
+  const [filteredData, setFilteredData] = useState([]);
   const [isError, setIsError] = useState(false);
   const [filterLanguage, setFilterLanguage] = useState([]);
 
@@ -18,6 +20,7 @@ function App() {
         const res = await fetch("./data.json");
         const dataRes = await res.json();
         setData(dataRes);
+        setFilteredData(dataRes);
       } catch (error) {
         setIsError(true);
         console.log(error);
@@ -40,6 +43,7 @@ function App() {
   };
 
   const handleClear = () => {
+    setData(filteredData);
     setFilterLanguage([]);
   };
 
