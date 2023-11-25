@@ -27,7 +27,7 @@ function App() {
   const handleClick = (language) => {
     setFilterLanguage((oldClick) => [...oldClick, language]);
   };
-  console.log("language", filterLanguage);
+
   return (
     <main>
       <header>
@@ -39,8 +39,10 @@ function App() {
       <div className="container">
         <div className="filter-list">
           <JobSearch />
-          {data.map((item) => {
-            return <JobCard item={item} handleClick={handleClick} />;
+          {data.map((item, index) => {
+            return (
+              <JobCard key={index} item={item} handleClick={handleClick} />
+            );
           })}
         </div>
       </div>

@@ -1,5 +1,3 @@
-import { useState } from "react";
-
 const JobCard = ({ item, handleClick }) => {
   //const [clickLanguage, setClickLanguage] = useState([]);
 
@@ -18,8 +16,12 @@ const JobCard = ({ item, handleClick }) => {
       <div className="job-categories">
         <p>{item.role}</p>
         <p>{item.level}</p>
-        {item.languages.map((language) => {
-          return <span onClick={() => handleClick(language)}>{language}</span>;
+        {item.languages.map((language, index) => {
+          return (
+            <span key={index} onClick={() => handleClick(language)}>
+              {language}
+            </span>
+          );
         })}
         {!!item.tools.length && <span>{item.tools}</span>}
       </div>
