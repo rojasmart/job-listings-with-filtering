@@ -7,6 +7,7 @@ function App() {
   const [isLoading, setIsLoading] = useState(false);
   const [data, setData] = useState([]);
   const [isError, setIsError] = useState(false);
+  const [filterLanguage, setFilterLanguage] = useState([]);
 
   useEffect(() => {
     setIsLoading(true);
@@ -23,8 +24,10 @@ function App() {
     handleFetchData();
   }, []);
 
-  console.log(data);
-
+  const handleClick = (language) => {
+    setFilterLanguage((oldClick) => [...oldClick, language]);
+  };
+  console.log("language", filterLanguage);
   return (
     <main>
       <header>
@@ -37,7 +40,7 @@ function App() {
         <div className="filter-list">
           <JobSearch />
           {data.map((item) => {
-            return <JobCard item={item} />;
+            return <JobCard item={item} handleClick={handleClick} />;
           })}
         </div>
       </div>
