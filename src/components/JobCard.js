@@ -14,11 +14,19 @@ const JobCard = ({ item, handleClick }) => {
         </div>
       </div>
       <div className="job-categories">
-        <span onClick={() => handleClick(item.role)}>{item.role}</span>
-        <span onClick={() => handleClick(item.level)}>{item.level}</span>
+        <span onClick={() => handleClick(item.role)} className="job-category">
+          {item.role}
+        </span>
+        <span onClick={() => handleClick(item.level)} className="job-category">
+          {item.level}
+        </span>
         {item.languages.map((language, index) => {
           return (
-            <span key={index} onClick={() => handleClick(language)}>
+            <span
+              key={index}
+              onClick={() => handleClick(language)}
+              className="job-category"
+            >
               {language}
             </span>
           );
@@ -26,7 +34,11 @@ const JobCard = ({ item, handleClick }) => {
         {!!item.tools.length &&
           item.tools.map((tool, index) => {
             return (
-              <span key={index} onClick={() => handleClick(tool)}>
+              <span
+                key={index}
+                onClick={() => handleClick(tool)}
+                className="job-category"
+              >
                 {tool}
               </span>
             );

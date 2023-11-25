@@ -1,4 +1,3 @@
-import { clear } from "@testing-library/user-event/dist/clear";
 import JobCard from "./components/JobCard";
 import JobSearch from "./components/JobSearch";
 
