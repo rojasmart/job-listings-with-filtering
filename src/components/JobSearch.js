@@ -5,7 +5,7 @@ const JobSearch = ({ filter, handleClear, handleLastFilter }) => {
         return (
           <span key={index} className="job-category-filter">
             {item}
-            <button onClick={handleLastFilter}>
+            <button onClick={() => handleLastFilter(item)}>
               <img src="/images/icon-remove.svg" alt="icon-cross" />
             </button>
           </span>

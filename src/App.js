@@ -47,10 +47,11 @@ function App() {
   };
 
   const handleLastFilter = (item) => {
-    const removedItem = item.filter((i) => {
-      return i !== item;
-    });
-    return removedItem;
+    setFilterLanguage(
+      filterLanguage.filter((langua) => {
+        return langua !== item;
+      })
+    );
   };
 
   return (
