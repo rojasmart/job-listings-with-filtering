@@ -97,7 +97,7 @@ header img {
 .job-categories {
   flex: 1 1 50%;
   display: flex;
-  gap: 2rem;
+  gap: 1rem;
   align-items: center;
   justify-content: flex-end;
 }
