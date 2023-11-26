@@ -15,6 +15,10 @@
   --bold: 700;
 }
 
+* {
+  box-sizing: border-box;
+}
+
 html {
   font-size: 0.938rem;
 }
@@ -59,6 +63,11 @@ header img {
   display: flex;
   flex-direction: column;
   gap: 2rem;
+  transform: translateY(-125px);
+}
+
+.filter-list .job-card:first-of-type {
+  height: 70px;
 }
 
 .job-card {
@@ -96,7 +105,7 @@ header img {
 .job-category-filter {
   border-radius: 4px;
   background-color: var(--green-opacity);
-  padding: 0rem 0rem 0rem 2rem;
+  padding: 0rem 0rem 0rem 0.6rem;
   color: var(--green);
   cursor: pointer;
   display: flex;
@@ -108,7 +117,7 @@ header img {
 .job-category {
   border-radius: 4px;
   background-color: var(--green-opacity);
-  padding: 1rem 2rem;
+  padding: 0.6rem 0.9rem;
   color: var(--green);
   cursor: pointer;
   align-self: center;
