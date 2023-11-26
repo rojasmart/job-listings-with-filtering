@@ -6,6 +6,7 @@ import { useState, useEffect, lazy } from "react";
 function App() {
   const [isLoading, setIsLoading] = useState(false);
   const [data, setData] = useState([]);
+  const [clearData, setClearData] = useState([]);
   const [filteredData, setFilteredData] = useState([]);
   const [isError, setIsError] = useState(false);
   const [filterLanguage, setFilterLanguage] = useState([]);
@@ -19,6 +20,7 @@ function App() {
         const res = await fetch("./data.json");
         const dataRes = await res.json();
         setData(dataRes);
+        setClearData(dataRes);
         setFilteredData(dataRes);
       } catch (error) {
         setIsError(true);
@@ -47,6 +49,16 @@ function App() {
   };
 
   const handleLastFilter = (item) => {
+    setData(
+      clearData.filter((dat) => {
+        return (
+          !dat.role.includes(item) ||
+          !dat.level.includes(item) ||
+          !dat.tools.includes(item) ||
+          !dat.languages.includes(item)
+        );
+      })
+    );
     setFilterLanguage(
       filterLanguage.filter((langua) => {
         return langua !== item;
