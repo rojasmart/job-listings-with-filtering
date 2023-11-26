@@ -49,21 +49,19 @@ function App() {
   };
 
   const handleLastFilter = (item) => {
-    setData(
-      clearData.filter((dat) => {
-        return (
-          !dat.role.includes(item) ||
-          !dat.level.includes(item) ||
-          !dat.tools.includes(item) ||
-          !dat.languages.includes(item)
-        );
-      })
-    );
-    setFilterLanguage(
-      filterLanguage.filter((langua) => {
-        return langua !== item;
-      })
-    );
+    const clearedData = clearData.filter((dat) => {
+      return (
+        !dat.role.includes(item) ||
+        !dat.level.includes(item) ||
+        !dat.tools.includes(item) ||
+        !dat.languages.includes(item)
+      );
+    });
+    const filteredLanguage = filterLanguage.filter((langua) => {
+      return langua !== item;
+    });
+    setFilterLanguage(filteredLanguage);
+    setData(clearedData);
   };
 
   return (
