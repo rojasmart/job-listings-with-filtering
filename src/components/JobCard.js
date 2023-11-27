@@ -6,8 +6,8 @@ const JobCard = ({ item, handleClick }) => {
       <img src={item.logo} alt="job-avatar" />
       <div className="job-info">
         <div className="job-info-chips">
-          <span className="new">{item.new && "new"}</span>
-          <span className="featured">{item.featured && "featured"}</span>
+          {item.new && <span className="new">new</span>}
+          {item.featured && <span className="featured">featured</span>}
         </div>
         <p>{item.company}</p>
         <h3>{item.position}</h3>

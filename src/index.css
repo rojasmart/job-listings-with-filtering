@@ -104,6 +104,22 @@ header img {
 .job-info-chips {
   display: flex;
   gap: 1rem;
+  text-transform: uppercase;
+  color: white;
+  font-size: 0.938rem;
+}
+
+.job-info-chips span {
+  border-radius: 12px;
+  padding: 0.3rem 0.7rem;
+}
+
+.new {
+  background-color: var(--green);
+}
+
+.featured {
+  background-color: #2b3939;
 }
 
 .job-categories {
