@@ -101,6 +101,11 @@ header img {
   margin: 0rem;
 }
 
+.job-info-chips {
+  display: flex;
+  gap: 1rem;
+}
+
 .job-categories {
   flex: 1 1 50%;
   display: flex;
