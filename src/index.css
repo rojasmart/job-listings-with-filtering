@@ -112,6 +112,18 @@ header img {
 .job-info-chips span {
   border-radius: 12px;
   padding: 0.3rem 0.7rem;
+  align-self: center;
+}
+
+.job-info-top {
+  display: flex;
+  gap: 1rem;
+}
+
+.job-info-top p {
+  font-size: 1.2rem;
+  color: var(--green);
+  font-weight: var(--bold);
 }
 
 .new {

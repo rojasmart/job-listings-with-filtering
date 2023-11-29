@@ -5,11 +5,13 @@ const JobCard = ({ item, handleClick }) => {
     <div className="job-card">
       <img src={item.logo} alt="job-avatar" />
       <div className="job-info">
-        <div className="job-info-chips">
-          {item.new && <span className="new">new</span>}
-          {item.featured && <span className="featured">featured</span>}
+        <div className="job-info-top">
+          <p>{item.company}</p>
+          <div className="job-info-chips">
+            {item.new && <span className="new">new</span>}
+            {item.featured && <span className="featured">featured</span>}
+          </div>
         </div>
-        <p>{item.company}</p>
         <h3>{item.position}</h3>
         <div className="job-info-secondary">
           <p>{item.postedAt}</p>
