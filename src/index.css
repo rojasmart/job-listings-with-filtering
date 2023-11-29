@@ -86,6 +86,15 @@ header img {
   gap: 2rem;
 }
 
+.job-info-secondary p {
+  color: var(--dark-grayish-cyan);
+}
+
+.job-info-secondary p:not(:first-of-type) {
+  display: list-item;
+  list-style-position: inside;
+}
+
 .job-card img {
   align-self: center;
 }
@@ -99,6 +108,8 @@ header img {
 
 .job-info h3 {
   margin: 0rem;
+  font-size: 1.5rem;
+  color: var(--very-dark-grayish-cyan);
 }
 
 .job-info-chips {
@@ -111,7 +122,7 @@ header img {
 
 .job-info-chips span {
   border-radius: 12px;
-  padding: 0.3rem 0.7rem;
+  padding: 0.5rem 1rem 0.4rem 1rem;
   align-self: center;
 }
 
