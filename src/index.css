@@ -201,4 +201,20 @@ button {
 /* Mobile */
 
 @media only screen and (max-width: 375px) {
+  .filter-list {
+    width: 100%;
+    min-width: auto;
+  }
+
+  .job-card {
+    flex-direction: column;
+    height: auto;
+  }
+
+  .job-categories {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    flex-direction: row-reverse;
+  }
 }
