@@ -28,8 +28,8 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+- [Solution URL:](https://www.frontendmentor.io/solutions/job-listings-with-filter-react-js-z5Ch1qJe_U)
+- [Live Site URL:](https://job-listings-with-filtering-gold-phi.vercel.app/)
 
 ## My process
 
