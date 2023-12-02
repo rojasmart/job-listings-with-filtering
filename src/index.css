@@ -81,6 +81,14 @@ header img {
   gap: 2rem;
 }
 
+.filter-list .job-card:nth-child(2) {
+  border-left: 4px solid var(--green);
+}
+
+.filter-list .job-card:nth-child(3) {
+  border-left: 4px solid var(--green);
+}
+
 .job-info-secondary {
   display: flex;
   gap: 2rem;

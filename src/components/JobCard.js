@@ -1,6 +1,4 @@
 const JobCard = ({ item, handleClick }) => {
-  //const [clickLanguage, setClickLanguage] = useState([]);
-
   return (
     <div className="job-card">
       <img src={item.logo} alt="job-avatar" />
