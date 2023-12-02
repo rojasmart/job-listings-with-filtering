@@ -161,6 +161,12 @@ header img {
   justify-content: flex-end;
 }
 
+.job-card-category {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
 .job-category-filter {
   border-radius: 4px;
   background-color: var(--green-opacity);
@@ -212,6 +218,7 @@ hr {
   .job-card {
     height: auto;
     position: relative;
+    padding: 1rem 1rem;
   }
 
   .filter-list {
@@ -221,6 +228,11 @@ hr {
 
   .job-categories {
     flex-wrap: wrap;
+  }
+
+  .filter-list .job-card:first-of-type {
+    height: auto;
+    min-height: 70px;
   }
 }
 
@@ -233,14 +245,14 @@ hr {
     gap: 3rem;
   }
 
-  .job-card {
+  .job-card:not(:first-of-type) {
     flex-direction: column;
     height: auto;
     padding: 2rem 2rem 1rem 2rem;
     gap: 0;
   }
 
-  .job-card img {
+  .job-avatar {
     position: absolute;
     width: 66px;
     top: -35px;

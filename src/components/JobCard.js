@@ -1,7 +1,7 @@
 const JobCard = ({ item, handleClick }) => {
   return (
     <div className="job-card">
-      <img src={item.logo} alt="job-avatar" />
+      <img src={item.logo} className="job-avatar" alt="job-avatar" />
       <div className="job-info">
         <div className="job-info-top">
           <p>{item.company}</p>
