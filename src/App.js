@@ -1,7 +1,7 @@
 import JobCard from "./components/JobCard";
 import JobSearch from "./components/JobSearch";
 
-import { useState, useEffect, lazy } from "react";
+import { useState, useEffect } from "react";
 
 function App() {
   const [isLoading, setIsLoading] = useState(false);
