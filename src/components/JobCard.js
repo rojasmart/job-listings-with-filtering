@@ -19,6 +19,7 @@ const JobCard = ({ item, handleClick }) => {
           <p>{item.location}</p>
         </div>
       </div>
+      <hr />
       <div className="job-categories">
         <span onClick={() => handleClick(item.role)} className="job-category">
           {item.role}
