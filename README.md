@@ -8,8 +8,6 @@ Users should be able to:
 - Filter job listings based on the categories
 
 ### Links
-
-- [Solution URL:](https://www.frontendmentor.io/solutions/job-listings-with-filter-react-js-z5Ch1qJe_U)
 - [Live Site URL:](https://job-listings-with-filtering-gold-phi.vercel.app/)
 
 ### Built with
