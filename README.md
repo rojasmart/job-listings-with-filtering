@@ -8,7 +8,8 @@ Users should be able to:
 - Filter job listings based on the categories
 
 ### Links
-- [Live Site URL:](https://job-listings-with-filtering-gold-phi.vercel.app/)
+- Live Site URL: [Live Site URL:](https://job-listings-with-filtering-gold-phi.vercel.app/)
+- 
 
 ### Built with
 
