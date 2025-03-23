@@ -1,5 +1,6 @@
 import JobCard from "./components/JobCard";
 import JobSearch from "./components/JobSearch";
+import SearchInput from "./components/SearchInput";
 
 import { useState, useEffect } from "react";
 
@@ -7,61 +8,81 @@ function App() {
   const [isLoading, setIsLoading] = useState(false);
   const [data, setData] = useState([]);
   const [clearData, setClearData] = useState([]);
-  const [filteredData, setFilteredData] = useState([]);
-  const [isError, setIsError] = useState(false);
+
   const [filterLanguage, setFilterLanguage] = useState([]);
+  const [searchTerm, setSearchTerm] = useState("");
 
   const uniqueFilter = Array.from(new Set(filterLanguage));
 
   useEffect(() => {
-    setIsLoading(true);
     const handleFetchData = async () => {
       try {
         const res = await fetch("./data.json");
         const dataRes = await res.json();
         setData(dataRes);
         setClearData(dataRes);
-        setFilteredData(dataRes);
       } catch (error) {
-        setIsError(true);
         console.log(error);
+      } finally {
+        setIsLoading(false);
       }
     };
     handleFetchData();
   }, []);
 
-  const handleClick = (language) => {
-    const newItem = data.filter((newVal) => {
-      return (
-        newVal.role.includes(language) ||
-        newVal.level.includes(language) ||
-        newVal.tools.includes(language) ||
-        newVal.languages.includes(language)
+
+  useEffect(() => {
+    let result = clearData;
+    
+    // Apply tag filters if they exist
+    if (uniqueFilter.length > 0) {
+      result = result.filter(item => {
+        return uniqueFilter.every(filter => 
+          item.role === filter || 
+          item.level === filter || 
+          item.languages.includes(filter) || 
+          item.tools.includes(filter)
+        );
+      });
+    }
+    
+    // Apply search term if it exists
+    if (searchTerm) {
+      const term = searchTerm.toLowerCase();
+      result = result.filter(item => 
+        item.position.toLowerCase().includes(term) || 
+        item.company.toLowerCase().includes(term) || 
+        item.role.toLowerCase().includes(term) ||
+        item.level.toLowerCase().includes(term)
       );
-    });
-    setData(newItem);
-    setFilterLanguage((oldClick) => [...oldClick, language]);
+    }
+    
+    setData(result);
+  }, [searchTerm, uniqueFilter, clearData]);
+
+
+
+  const handleClick = (language) => {
+    // Only add the language tag if it doesn't exist already
+    if (!filterLanguage.includes(language)) {
+      setFilterLanguage(prev => [...prev, language]);
+    }
+    // No manual data filtering here, let the useEffect handle it
   };
 
   const handleClear = () => {
-    setData(filteredData);
     setFilterLanguage([]);
   };
 
   const handleLastFilter = (item) => {
-    const clearedData = clearData.filter((dat) => {
-      return (
-        !dat.role.includes(item) ||
-        !dat.level.includes(item) ||
-        !dat.tools.includes(item) ||
-        !dat.languages.includes(item)
-      );
-    });
-    const filteredLanguage = filterLanguage.filter((langua) => {
-      return langua !== item;
-    });
-    setFilterLanguage(filteredLanguage);
-    setData(clearedData);
+    // Just update the filter language array, let the useEffect handle filtering
+    setFilterLanguage(current => 
+      current.filter(lang => lang !== item)
+    );
+  };
+
+  const handleSearch = (term) => {
+    setSearchTerm(term);
   };
 
   return (
@@ -74,16 +95,25 @@ function App() {
       </header>
       <div className="container">
         <div className="filter-list">
-          <JobSearch
-            filter={uniqueFilter}
-            handleClear={handleClear}
-            handleLastFilter={handleLastFilter}
-          />
-          {data.map((item, index) => {
-            return (
-              <JobCard key={index} item={item} handleClick={handleClick} />
-            );
-          })}
+          <div className="search-and-filter">
+            <SearchInput searchTerm={searchTerm} handleSearch={handleSearch} />
+            <JobSearch
+              filter={uniqueFilter}
+              handleClear={handleClear}
+              handleLastFilter={handleLastFilter}
+            />
+          </div>
+          {isLoading ? (
+            <div className="loading">Loading jobs...</div>
+          ) : data.length === 0 ? (
+            <div className="no-results">No jobs match your search criteria</div>
+          ) : (
+            data.map((item, index) => {
+              return (
+                <JobCard key={index} item={item} handleClick={handleClick} />
+              );
+            })
+          )}
         </div>
       </div>
     </main>
